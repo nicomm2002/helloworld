@@ -12,7 +12,7 @@ subprocess.run(['python', 'app.py', config["t1"]])
 
 #Configurar el repositorio en tu perfil
 subprocess.run(['git', 'remote', 'remove', 'origin'])
-subprocess.run(['git', 'remote', 'add', 'origin', 'https://github.com/nicomm2002/app-helloworld.git'])
+subprocess.run(['git', 'remote', 'add', 'origin', 'https://github.com/nicomm2002/app-helloworld2.0.git'])
 
 # Añadir cambios al repositorio de Git
 subprocess.run(['git', 'add', '.'])
