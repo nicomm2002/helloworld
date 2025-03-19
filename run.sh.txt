@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Dar permisos de ejecución a app.py (solo necesario en sistemas Unix)
+chmod +x app.py
+
+# Ejecutar main.py
+python main.py

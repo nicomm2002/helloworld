@@ -1,10 +1,16 @@
-#!/usr/bin/env python
+import json
+import subprocess
 
-import sys
-import nibabel as nib
+# Cargar config.json
+with open('config.json') as f:
+    config = json.load(f)
 
-#just dump input image header to output.txt
-img=nib.load(sys.argv[1])
-f=open("output.txt", "w")
-f.write(str(img.header))
-f.close()
+print("my path to t1w is ", config["t1"])
+
+# Ejecutar app.py con el argumento del archivo de imagen
+subprocess.run(['python', 'app.py', config["t1"]])
+
+# Añadir cambios al repositorio de Git
+subprocess.run(['git', 'add', '.'])
+subprocess.run(['git', 'commit', '-m', 'created my first BL App!'])
+subprocess.run(['git', 'push'])
