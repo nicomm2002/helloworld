@@ -1,12 +1,22 @@
 import json
 import subprocess
+import os
 
-# Cargar config.json
-with open('config.json') as f:
-    config = json.load(f)
+try:
+    # Cargar config.json
+    with open('config.json') as f:
+        config = json.load(f)
 
-print("my path to t1w is ", config["t1"])
+    print("Mi ruta al archivo EEG es ", config["eeg"])
 
-# Ejecutar app.py con el argumento del archivo de imagen
-subprocess.run(['python', 'app.py', config["t1"]])
+    # Ejecutar app.py con el argumento del archivo de datos EEG
+    subprocess.run(['python', 'app.py', config["eeg"]])
 
+except FileNotFoundError as e:
+    print(f"Error: {e}")
+except json.JSONDecodeError as e:
+    print(f"Error al cargar el archivo JSON: {e}")
+except KeyError as e:
+    print(f"Error: La clave {e} no se encuentra en config.json")
+except Exception as e:
+    print(f"Ocurrió un error: {e}")
